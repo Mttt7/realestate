@@ -8,6 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/v1/property")
 @RequiredArgsConstructor
@@ -16,10 +18,24 @@ public class PropertyController {
 
     private final PropertyService propertyService;
 
-    @GetMapping("/")
+    @GetMapping("/all")
     public ResponseEntity<Page<PropertyResponseDto>> getAllProperties( @RequestParam int pageSize,
                                                                        @RequestParam int pageNumber){
         Page<PropertyResponseDto> properties = propertyService.getAllProperties(pageSize,pageNumber);
+        return ResponseEntity.ok(properties);
+    }
+
+
+    @PostMapping("/favourite/{propertyId}")
+    public ResponseEntity<Map<String,String>> addPropertyToFavorites(@PathVariable Long propertyId){
+        Map<String,String> res = propertyService.addPropertyToFavourities(propertyId);
+        return ResponseEntity.ok(res);
+    }
+
+    @GetMapping("/favourites")
+    public ResponseEntity<Page<PropertyResponseDto>> getFavourites(@RequestParam int pageSize,
+                                                                   @RequestParam int pageNumber){
+        Page<PropertyResponseDto> properties = propertyService.getFavourites(pageSize,pageNumber);
         return ResponseEntity.ok(properties);
     }
 }

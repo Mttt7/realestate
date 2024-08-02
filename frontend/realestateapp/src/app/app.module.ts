@@ -16,6 +16,8 @@ import {
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PropertySmallViewComponent } from './components/property-small-view/property-small-view.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
+    PropertySmallViewComponent,
+    FavoritesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [

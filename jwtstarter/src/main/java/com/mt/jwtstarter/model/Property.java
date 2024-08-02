@@ -4,6 +4,10 @@ package com.mt.jwtstarter.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.sql.Timestamp;
 
 @Getter
 @Setter
@@ -62,6 +66,16 @@ public class Property {
     @Column(name = "parking_spaces")
     private int parkingSpaces;
 
+
+
+
+    @Column(name = "created_at")
+    @CreationTimestamp
+    private Timestamp createdAt;
+
+    @Column(name = "last_updated")
+    @UpdateTimestamp
+    private Timestamp lastUpdated;
 
 
 

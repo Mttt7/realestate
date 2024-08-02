@@ -35,6 +35,8 @@ public class PropertiesMapper {
                 .bathrooms(property.getBathrooms())
                 .sizeMeters(property.getSizeMeters())
                 .parkingSpaces(property.getParkingSpaces())
+                .createdAt(property.getCreatedAt())
+                .lastUpdated(property.getLastUpdated())
                 .build();
     }
 }

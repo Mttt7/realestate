@@ -9,6 +9,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.Builder;
 import lombok.Data;
 
+import java.sql.Timestamp;
+
 @Data
 @Builder
 public class PropertyResponseDto {
@@ -31,4 +33,9 @@ public class PropertyResponseDto {
     private int bathrooms;
     private int sizeMeters;
     private int parkingSpaces;
+
+    private boolean favorite;
+
+    private Timestamp createdAt;
+    private Timestamp lastUpdated;
 }
